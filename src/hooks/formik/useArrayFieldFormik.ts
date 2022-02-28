@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 
-export function useFieldArrayFormik<Values extends { [key: string]: string[] }>(name: string) {
+export function useArrayFieldFormik<Values extends { [key: string]: string[] }>(name: string) {
   const { values, setFieldValue, setFieldTouched } = useFormikContext<Values>();
   let value: string[];
 

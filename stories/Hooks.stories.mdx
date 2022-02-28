@@ -15,7 +15,7 @@ useToggle(initialState: boolean = false): readonly [boolean, () => void]
 # Formik Hooks
 
 ```ts
-useFieldArrayFormik<Values extends {[key: string]: string[]}>(name: string): readonly [string[], (newValue: string) => void]
+useArrayFieldFormik<Values extends {[key: string]: string[]}>(name: string): readonly [string[], (newValue: string) => void]
 ```
 
 ```ts

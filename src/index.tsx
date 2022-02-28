@@ -7,3 +7,5 @@ export { DefaultTable } from "./components/Table/DefaultTable";
 // Нужен ли экспорт утильных компонентов таблицы?
 
 export { useToggle } from "./hooks/useToggle";
+export { useArrayFieldFormik } from "./hooks/formik/useArrayFieldFormik";
+export { useDeleteFieldFormik } from "./hooks/formik/useDeleteFieldFormik";
