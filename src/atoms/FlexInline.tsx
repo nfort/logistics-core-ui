@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const FlexInline = styled("div")<{ gap: boolean }>`
+export const FlexInline = styled("div")<{ gap?: boolean }>`
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
