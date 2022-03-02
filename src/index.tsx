@@ -7,6 +7,9 @@ export { Alert } from "./components/Alert";
 export { DefaultTable } from "./components/Table/DefaultTable";
 export { Pagination, Filter, DefaultColumnFilter, Field, Table } from "./components/Table/components";
 
+export { WithPrefetch } from "./hocs/WithPrefetch";
+
 export { useToggle } from "./hooks/useToggle";
+export { usePrevious } from "./hooks/usePrevious";
 export { useArrayFieldFormik } from "./hooks/formik/useArrayFieldFormik";
 export { useDeleteFieldFormik } from "./hooks/formik/useDeleteFieldFormik";
