@@ -13,8 +13,19 @@ module.exports = {
     },
     "@storybook/addon-essentials",
   ],
-  // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {
     check: true, // type-check stories during Storybook build
+  },
+  refs: {
+    "holism-formik": {
+      title: "Holism Formik wrappers",
+      url: "https://62014ff5ccb1b0003a711714-jyhqugyntc.chromatic.com/",
+      expanded: false, // optional, true by default
+    },
+    "holism-ui": {
+      title: "Holism Ui",
+      url: "https://62206da496d935003a99e04c-pxfmxfzjgx.chromatic.com/",
+      expanded: false, // optional, true by default
+    },
   },
 };
