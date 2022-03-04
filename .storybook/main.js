@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ["../stories/**/*.stories.@(ts|tsx|js|jsx|mdx)"],
+  stories: ["../stories/**/Main.stories.mdx", "../stories/**/*.stories.@(ts|tsx|js|jsx|mdx)"],
   addons: [
     "@storybook/addon-links",
     {
@@ -19,7 +19,7 @@ module.exports = {
   refs: {
     "holism-formik": {
       title: "Holism Formik wrappers",
-      url: "https://62014ff5ccb1b0003a711714-jyhqugyntc.chromatic.com/",
+      url: "https://62014ff5ccb1b0003a711714-amdiuoldtz.chromatic.com/",
       expanded: false, // optional, true by default
     },
     "holism-ui": {
