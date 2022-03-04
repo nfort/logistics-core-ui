@@ -1,0 +1,170 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { DefaultTable } from "../../../src";
+import { Column, useFlexLayout, usePagination, useSortBy, useTable } from "react-table";
+import { DefaultColumnFilter } from "../../../src/components/Table/components/ColumnFilters";
+import { Button, DropMenu, Paragraph } from "@holism/components";
+import { LoadingContainer } from "../../../src";
+import { Table } from "../../../src/components/Table/components/Table";
+import { Pagination } from "../../../src/components/Table/components/Pagination";
+import { Content } from "../../../src";
+import { CustomTable } from "./CustomTable";
+
+# Table
+
+Таблица состоит из набора компонентов и хуков из react-table.
+Есть так же стандартная реализация таблицы DefaultTable, которая подойдет во многих случаях
+
+Кастомный компонент содержит набор следующий компонентов
+
+```jsx
+import { Content, DefaultColumnFilter, LoadingContainer, Pagination, Table } from "../../../src";
+```
+
+<ArgsTable component={DefaultTable} />
+
+<Meta title="components/Table" component={DefaultTable} />
+
+<Canvas>
+    <Story name="Default">
+      <DefaultTable
+          data={[
+                  {
+                    name: "Иванов Иван Иванович",
+                    login: "js@mail.ru",
+                    email: "еееее@mail.ru",
+                  },
+                  {
+                    name: "Петров Сергей Иванович",
+                    login: "ts@mail.ru",
+                    email: "ex@mail.ru",
+                  },
+                ]}
+          columns={[
+                     {
+                       Header: "ФИО",
+                       accessor: "name",
+                       Filter: DefaultColumnFilter,
+                     },
+                     {
+                       Header: "Логин",
+                       accessor: "login",
+                       Filter: DefaultColumnFilter,
+                     },
+                     {
+                       Header: "Email",
+                       accessor: "email",
+                       Filter: DefaultColumnFilter,
+                     },
+                   ]}
+          loading={false}
+          reload={() => console.log("reload")}
+          onRowClick={(row) => console.log(row)}
+      />
+    </Story>
+</Canvas>
+
+```jsx
+import * as React from "react";
+import { Column, useFlexLayout, usePagination, useSortBy, useTable } from "react-table";
+import { Button, DropMenu, Paragraph } from "@holism/components";
+import { Content, DefaultColumnFilter, LoadingContainer, Pagination, Table } from "../../../src";
+
+const CustomTable = () => {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    canNextPage,
+    canPreviousPage,
+    previousPage,
+    nextPage,
+    gotoPage,
+    rows,
+    pageCount,
+    page,
+    pageOptions,
+    state,
+    prepareRow,
+    headerGroups,
+  } = useTable(
+    {
+      data,
+      columns,
+    },
+    useFlexLayout,
+    useSortBy,
+    usePagination,
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => [
+        ...columns,
+        {
+          accessor: "actions" as any,
+          width: 50,
+          Cell: () => {
+            return (
+              <DropMenu
+                options={[
+                  { label: "Отказ", id: "cancel" },
+                  { label: "В процессе", id: "in-progress" },
+                  { label: "Не поступил", id: "not-received" },
+                  { label: "Поступил", id: "received" },
+                  { label: "Активация", id: "active" },
+                ]}
+                onClick={() => {}}
+              >
+                <Button dimension="xsmall" color="secondary" isWithIcon={true}>
+                  ✏️
+                </Button>
+              </DropMenu>
+            );
+          },
+        },
+      ]);
+    }
+  );
+  return (
+    <LoadingContainer loading={false}>
+      <Content fillSpace={true} padding="0">
+        <Content.Header>
+          <Paragraph size={22} fontWeight="bold">
+            Список продуктов
+          </Paragraph>
+          <Button dimension="small" isWithIcon={true} onClick={() => {}}>
+            🌕<span>&nbsp;Добавить</span>
+          </Button>
+        </Content.Header>
+        <div>
+          <Table
+            headerGroups={headerGroups}
+            getTableProps={getTableProps}
+            getTableBodyProps={getTableBodyProps}
+            rows={rows}
+            prepareRow={prepareRow}
+          />
+        </div>
+        <Content.Footer>
+          <Pagination
+            canNextPage={canNextPage}
+            page={page}
+            previousPage={previousPage}
+            nextPage={nextPage}
+            canPreviousPage={canPreviousPage}
+            gotoPage={gotoPage}
+            pageIndex={state.pageIndex}
+            pageOptions={pageOptions}
+            pageCount={pageCount}
+          />
+        </Content.Footer>
+      </Content>
+    </LoadingContainer>
+  );
+};
+```
+
+<Canvas>
+    <Story name="CustomTable">
+      <CustomTable/>
+    </Story>
+</Canvas>
+
+export const Component = () => <SyntaxHighlighter/>

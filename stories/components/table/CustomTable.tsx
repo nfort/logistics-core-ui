@@ -1,22 +1,9 @@
 /// <reference path="../../../types/react-table-config.d.ts" />
 
 import * as React from "react";
-import { DefaultTable } from "../../../src";
 import { Column, useFlexLayout, usePagination, useSortBy, useTable } from "react-table";
-import { DefaultColumnFilter } from "../../../src/components/Table/components/ColumnFilters";
 import { Button, DropMenu, Paragraph } from "@holism/components";
-import { LoadingContainer } from "../../../src";
-import { Table } from "../../../src/components/Table/components/Table";
-import { Pagination } from "../../../src/components/Table/components/Pagination";
-import { Content } from "../../../src";
-import { ComponentMeta } from "@storybook/react";
-
-const meta = {
-  title: "components/Table",
-  component: DefaultTable,
-} as ComponentMeta<typeof DefaultTable>;
-
-export default meta;
+import { Content, DefaultColumnFilter, LoadingContainer, Pagination, Table } from "../../../src";
 
 export interface EmployeeDTO {
   email: string | null;
@@ -54,16 +41,6 @@ const columns: Column<EmployeeDTO>[] = [
     Filter: DefaultColumnFilter,
   },
 ];
-
-export const Default = () => (
-  <DefaultTable<EmployeeDTO>
-    data={data}
-    columns={columns}
-    loading={false}
-    reload={() => console.log("reload")}
-    onRowClick={(row) => console.log(row)}
-  />
-);
 
 export const CustomTable = () => {
   const {
