@@ -53,6 +53,11 @@ const Styles = styled.div`
     line-height: 1;
     font-family: "Proxima Nova", sans-serif;
 
+    .thead .tr,
+    .tbody .tr {
+      border-bottom: 1px solid rgb(246, 246, 249);
+    }
+
     .thead {
       font-size: 13px;
       line-height: 20px;
@@ -115,7 +120,6 @@ const Styles = styled.div`
       margin: 0;
       padding: 1rem;
       //overflow: hidden;
-      border-bottom: 1px solid rgb(246, 246, 249);
     }
   }
 `;
