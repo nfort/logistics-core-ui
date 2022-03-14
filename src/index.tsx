@@ -1,12 +1,13 @@
 export { Content } from "./atoms/Content";
 export { Flex } from "./atoms/Flex";
 export { FlexInline } from "./atoms/FlexInline";
+export { FormField } from "./atoms/FormField";
 export { LoadingContainer } from "./atoms/LoadingContainer";
 export { FadeDown } from "./atoms/animations/FadeDown";
 
 export { Alert } from "./components/Alert";
 export { DefaultTable } from "./components/Table/DefaultTable";
-export { Pagination, Filter, DefaultColumnFilter, Field, Table } from "./components/Table/components";
+export { Pagination, Filter, DefaultColumnFilter, TableFilterField, Table } from "./components/Table/components";
 
 export { WithPrefetch } from "./hocs/WithPrefetch";
 

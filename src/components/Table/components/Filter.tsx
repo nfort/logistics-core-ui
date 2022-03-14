@@ -4,7 +4,7 @@ import { Input, Button } from "@holism/components";
 import { SearchIcon, PropertiesIcon, ArrowUpIcon } from "@holism/icons";
 import styled from "styled-components";
 import { baseBorderRadius, baseBorderWidth } from "../../../styles/base";
-import { Field } from "./Field";
+import { TableFilterField } from "./TableFilterField";
 import { ReturnedTypeUseToggle, useToggle } from "../../../hooks/useToggle";
 import { FadeDown } from "../../../atoms/animations/FadeDown";
 
@@ -24,7 +24,7 @@ export function Filter({ globalFilter, setGlobalFilter, columns, children }: Pro
     <Styled>
       <div className="main-row">
         <div className="search-input">
-          <Field label="Поиск по доступным полям">
+          <TableFilterField label="Поиск по доступным полям">
             <Input
               value={value || ""}
               onChange={(e) => {
@@ -35,7 +35,7 @@ export function Filter({ globalFilter, setGlobalFilter, columns, children }: Pro
               icon={<SearchIcon />}
               dimension="small"
             />
-          </Field>
+          </TableFilterField>
         </div>
         <div>
           {children}
@@ -49,7 +49,7 @@ export function Filter({ globalFilter, setGlobalFilter, columns, children }: Pro
             .filter(Boolean)
             .map((column) => (
               <div key={column?.id}>
-                <Field label={column?.Header as string}>{column?.render("Filter")}</Field>
+                <TableFilterField label={column?.Header as string}>{column?.render("Filter")}</TableFilterField>
               </div>
             ))}
         </div>

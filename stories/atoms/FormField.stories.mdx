@@ -1,0 +1,30 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import {FormField} from "../../src"
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+# FormField
+
+используется для обертки полей в формах
+
+<ArgsTable component={FormField} include={["marginBottom", "height"]} />
+
+<Meta title="atoms/FormField" component={FormField} />
+
+```jsx
+<Field height="87px" marginBottom="0">
+  <DateSelect deliveryId={deliveryId} branchId={deliveryInfo.data.appointment.city.branchId} />
+</Field>
+<Field height="87px" marginBottom="0">
+  <IntervalSelect deliveryId={deliveryId} branchId={deliveryInfo.data.appointment.city.branchId} />
+</Field>
+```
+
+<Canvas>
+    <Story name="Default">
+        <FormField><div style={{ backgroundColor: "aquamarine", padding: "2rem" }}>Hello</div></FormField>
+        <FormField marginBottom="5rem"><div style={{ backgroundColor: "aquamarine", padding: "2rem" }}>Hello</div></FormField>
+        <FormField height="1rem"><div style={{ backgroundColor: "aquamarine", padding: "1rem" }}>World</div></FormField>
+    </Story>
+</Canvas>
+
+export const Component = () => <SyntaxHighlighter/>
