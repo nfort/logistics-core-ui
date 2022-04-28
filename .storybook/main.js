@@ -24,7 +24,7 @@ module.exports = {
     },
     "holism-ui": {
       title: "Holism Ui",
-      url: "https://62206da496d935003a99e04c-pxfmxfzjgx.chromatic.com/",
+      url: "https://62206da496d935003a99e04c-yvzxmqoaud.chromatic.com/",
       expanded: false, // optional, true by default
     },
   },
