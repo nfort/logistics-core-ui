@@ -10,35 +10,37 @@ type Props = Pick<
 export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, headerGroups, onRowClick }: Props) {
   return (
     <Styles>
-      <div {...getTableProps()} className="table">
-        <div className="thead">
-          {headerGroups.map((headerGroup) => (
-            <div {...headerGroup.getHeaderGroupProps()} className="tr">
-              {headerGroup.headers.map((column) => (
-                <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
-                  {column.render("Header")}
-                  <span className={column.isSorted ? (column.isSortedDesc ? "desc" : "asc") : ""} />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-        <div {...getTableBodyProps()} className="tbody">
-          {rows.map((row) => {
-            prepareRow(row);
-            return (
-              <div
-                {...row.getRowProps((props) => ({ ...props, onClick: () => onRowClick && onRowClick(row) }))}
-                className={`tr ${onRowClick && "clickable"}`}
-              >
-                {row.cells.map((cell) => (
-                  <div {...cell.getCellProps()} className="td">
-                    {cell.render("Cell")}
+      <div className="tableWrap">
+        <div {...getTableProps()} className="table">
+          <div className="thead">
+            {headerGroups.map((headerGroup) => (
+              <div {...headerGroup.getHeaderGroupProps()} className="tr">
+                {headerGroup.headers.map((column) => (
+                  <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
+                    {column.render("Header")}
+                    <span className={column.isSorted ? (column.isSortedDesc ? "desc" : "asc") : ""} />
                   </div>
                 ))}
               </div>
-            );
-          })}
+            ))}
+          </div>
+          <div {...getTableBodyProps()} className="tbody">
+            {rows.map((row) => {
+              prepareRow(row);
+              return (
+                <div
+                  {...row.getRowProps((props) => ({ ...props, onClick: () => onRowClick && onRowClick(row) }))}
+                  className={`tr ${onRowClick && "clickable"}`}
+                >
+                  {row.cells.map((cell) => (
+                    <div {...cell.getCellProps()} className="td">
+                      {cell.render("Cell")}
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </Styles>
@@ -46,6 +48,13 @@ export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, head
 }
 
 const Styles = styled.div`
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  .tableWrap {
+    min-width: 1366px;
+  }
+
   .table {
     border-spacing: 0;
     background-color: white;
