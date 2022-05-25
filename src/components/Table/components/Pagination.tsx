@@ -49,7 +49,7 @@ export function Pagination({
           <ArrowLeftIcon size={20} />
         </Button>
         <Button color="tertiary" dimension="xsmall" onClick={nextPage} isWithIcon={true} isDisabled={!canNextPage}>
-          <ArrowRightIcon />
+          <ArrowRightIcon size={20} />
         </Button>
         <Button
           color="tertiary"

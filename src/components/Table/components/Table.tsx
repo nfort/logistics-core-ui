@@ -128,6 +128,7 @@ const Styles = styled.div`
     .td {
       margin: 0;
       padding: 1rem;
+      word-break: break-all;
       //overflow: hidden;
     }
   }
