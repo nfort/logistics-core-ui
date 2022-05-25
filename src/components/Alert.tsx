@@ -15,9 +15,9 @@ export function Alert({ view, width, children }: Props) {
   const renderIcon = () => {
     switch (view) {
       case "success":
-        return <StatusOkIcon />;
+        return <StatusOkIcon size={20} />;
       case "warning":
-        return <AttentionIcon />;
+        return <AttentionIcon size={20} />;
     }
   };
   return (

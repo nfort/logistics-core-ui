@@ -26,7 +26,7 @@ export function Pagination({
       <div className="right-block">
         {typeof reload === "function" && (
           <Button dimension="xsmall" color="secondary" onClick={reload} isWithIcon={true}>
-            <RefreshIcon />
+            <RefreshIcon size={20} />
             Обновить
           </Button>
         )}
@@ -37,7 +37,7 @@ export function Pagination({
           isDisabled={!canPreviousPage}
           isWithIcon={true}
         >
-          <DoubleArrowLeftIcon />
+          <DoubleArrowLeftIcon size={20} />
         </Button>
         <Button
           color="tertiary"
@@ -46,7 +46,7 @@ export function Pagination({
           isWithIcon={true}
           isDisabled={!canPreviousPage}
         >
-          <ArrowLeftIcon />
+          <ArrowLeftIcon size={20} />
         </Button>
         <Button color="tertiary" dimension="xsmall" onClick={nextPage} isWithIcon={true} isDisabled={!canNextPage}>
           <ArrowRightIcon />
@@ -58,7 +58,7 @@ export function Pagination({
           isWithIcon={true}
           isDisabled={!canNextPage}
         >
-          <DoubleArrowRightIcon />
+          <DoubleArrowRightIcon size={20} />
         </Button>
       </div>
     </Styled>
