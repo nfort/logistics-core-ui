@@ -32,7 +32,7 @@ export function Filter({ globalFilter, setGlobalFilter, columns, children }: Pro
                 setValue(input.target.value);
                 onChange(input.target.value);
               }}
-              icon={<SearchIcon />}
+              icon={<SearchIcon size={20} />}
               dimension="small"
             />
           </TableFilterField>
@@ -70,7 +70,7 @@ function FiltersControlButton({
   if (hasFilter) {
     return (
       <Button type="button" isWithIcon={true} color="tertiary" onClick={onToggle} dimension="medium">
-        {opened ? <ArrowUpIcon /> : <PropertiesIcon />}
+        {opened ? <ArrowUpIcon size={20} /> : <PropertiesIcon size={20} />}
       </Button>
     );
   }
