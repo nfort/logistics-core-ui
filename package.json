@@ -27,9 +27,9 @@
     "normalize.css": ">=8",
     "react": ">=17",
     "react-dom": ">=17",
+    "react-query": "3.x.x",
     "react-table": ">=7",
-    "styled-components": ">=5",
-    "react-query": "3.x.x"
+    "styled-components": ">=5"
   },
   "husky": {
     "hooks": {
