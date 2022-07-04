@@ -2,6 +2,7 @@ export { Content } from "./atoms/Content";
 export { Flex } from "./atoms/Flex";
 export { FlexInline } from "./atoms/FlexInline";
 export { FormField } from "./atoms/FormField";
+export { Loading } from "./atoms/Loading";
 export { LoadingContainer } from "./atoms/LoadingContainer";
 export { FadeDown } from "./atoms/animations/FadeDown";
 
