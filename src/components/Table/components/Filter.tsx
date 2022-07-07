@@ -1,6 +1,7 @@
 import React, { ChangeEvent, PropsWithChildren, useState } from "react";
 import { TableInstance, useAsyncDebounce } from "react-table";
-import { Input, Button } from "@holism/components";
+import { Button } from "@holism/components";
+import { Input } from "@nfort/holism-ui";
 import { SearchIcon, PropertiesIcon, ArrowUpIcon } from "@holism/icons";
 import styled from "styled-components";
 import { baseBorderRadius, baseBorderWidth } from "../../../styles/base";
@@ -24,18 +25,17 @@ export function Filter({ globalFilter, setGlobalFilter, columns, children }: Pro
     <Styled>
       <div className="main-row">
         <div className="search-input">
-          <TableFilterField label="Поиск по доступным полям">
-            <Input
-              value={value || ""}
-              onChange={(e) => {
-                const input = e as ChangeEvent<HTMLInputElement>;
-                setValue(input.target.value);
-                onChange(input.target.value);
-              }}
-              icon={<SearchIcon size={20} />}
-              dimension="small"
-            />
-          </TableFilterField>
+          <Input
+            value={value || ""}
+            placeholder="Поиск по всем полям"
+            onChange={(e) => {
+              const input = e as ChangeEvent<HTMLInputElement>;
+              setValue(input.target.value);
+              onChange(input.target.value);
+            }}
+            icon={<SearchIcon size={20} />}
+            dimension="small"
+          />
         </div>
         <div>
           {children}
@@ -102,7 +102,7 @@ const Styled = styled.div`
   }
 
   .search-input {
-    width: 450px;
+    width: 350px;
   }
 
   .content {

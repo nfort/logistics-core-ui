@@ -1333,7 +1333,7 @@
     text-mask-addons "^3.8.0"
     uuid "^3.3.3"
 
-"@holism/icons@^6.3.0":
+"@holism/icons@^6.11.5", "@holism/icons@^6.3.0":
   version "6.11.7"
   resolved "https://registry.yarnpkg.com/@holism/icons/-/icons-6.11.7.tgz#6b6e670c66b5b1d03e480db25a67955594fd95a9"
   integrity sha512-pr18UAcMdALoVKACjY/nZulyfaOfTRIaTiLpAh1N/AniQWSxxwny5Zhd5aqsmCvfWUcVOx6T6yEejcXC77RQTA==
@@ -1638,6 +1638,16 @@
   dependencies:
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
+
+"@nfort/holism-ui@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@nfort/holism-ui/-/holism-ui-1.5.0.tgz#1943d480825caca3ddc58a54025070395ddaa302"
+  integrity sha512-+fMCjCvh3NA04MDXlTHUROYyjYXgzhw4IAYxs7BNiZYDl9f7tAwWNGms9v6gvKb9EKSML5ALPUNW3zNjkDVFyw==
+  dependencies:
+    "@holism/icons" "^6.11.5"
+    "@tippyjs/react" "^4.1.0"
+    resize-observer-polyfill "^1.5.1"
+    styled-components "^5.3.3"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
