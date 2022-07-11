@@ -1,4 +1,3 @@
-/* @deprecated Использовать atoms/Loading */
 import * as React from "react";
 import { useEffect, useState, PropsWithChildren } from "react";
 import { useQueryClient } from "react-query";
@@ -9,6 +8,9 @@ type Props = PropsWithChildren<{
   queries: Function[];
   height?: string;
 }>;
+/**
+ * @deprecated Использовать atoms/Loading
+ */
 export function WithPrefetch({ children, queries, height = "auto" }: Props) {
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState(true);
