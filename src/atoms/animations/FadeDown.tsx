@@ -22,7 +22,6 @@ export function FadeDown(props: Partial<CSSTransitionProps>) {
 
 const FadeDownAnimation = styled.div<{ state: TransitionStatus }>`
   transition: all 0.25s ease-in-out;
-  overflow: hidden;
   opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
   max-height: ${({ state }) => (state === "entered" ? "1200px" : 0)};
 `;
