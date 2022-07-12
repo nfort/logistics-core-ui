@@ -8,7 +8,7 @@ export { FadeDown } from "./atoms/animations/FadeDown";
 
 export { Alert } from "./components/Alert";
 export { DefaultTable } from "./components/Table/DefaultTable";
-export { Pagination, Filter, DefaultColumnFilter, TableFilterField, Table } from "./components/Table/components";
+export { Pagination, Filter, DefaultColumnFilter, Table } from "./components/Table/components";
 
 export { WithPrefetch } from "./hocs/WithPrefetch";
 

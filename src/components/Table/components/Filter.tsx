@@ -5,7 +5,6 @@ import { Input } from "@nfort/holism-ui";
 import { SearchIcon, PropertiesIcon, ArrowUpIcon } from "@holism/icons";
 import styled from "styled-components";
 import { baseBorderRadius, baseBorderWidth } from "../../../styles/base";
-import { TableFilterField } from "./TableFilterField";
 import { ReturnedTypeUseToggle, useToggle } from "../../../hooks/useToggle";
 import { FadeDown } from "../../../atoms/animations/FadeDown";
 
@@ -48,9 +47,7 @@ export function Filter({ globalFilter, setGlobalFilter, columns, children }: Pro
             .map((column) => (!column.disableFilters ? column : null))
             .filter(Boolean)
             .map((column) => (
-              <div key={column?.id}>
-                <TableFilterField label={column?.Header as string}>{column?.render("Filter")}</TableFilterField>
-              </div>
+              <div key={column?.id}>{column?.render("Filter")}</div>
             ))}
         </div>
       </FadeDown>
