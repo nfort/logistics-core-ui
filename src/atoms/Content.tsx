@@ -58,7 +58,6 @@ const Container = styled("div")<{
   }
 
   padding: ${({ padding = "1rem" }) => padding};
-  margin-bottom: 1rem;
   border-radius: ${baseBorderRadius};
   border-width: ${baseBorderWidth};
   border-style: solid;
