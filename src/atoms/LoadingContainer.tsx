@@ -1,21 +1,25 @@
-import React, {PropsWithChildren} from "react";
-import {COLORS, Loader} from "@holism/components";
+import React, { PropsWithChildren } from "react";
+import { COLORS, Loader } from "@holism/components";
 import styled from "styled-components";
-import {baseBorderRadius} from "../styles/base";
+import { baseBorderRadius } from "../styles/base";
 
 interface LoadingBlockProps {
   loading: boolean;
 }
 
-export function LoadingContainer({loading, children}: PropsWithChildren<LoadingBlockProps>) {
+export function LoadingContainer({ loading, children }: PropsWithChildren<LoadingBlockProps>) {
   if (loading) {
-    return <LoadingDiv>
-      <div className="loading-wrapper"/>
-      <div className="loading"><Loader dimension='large' color={COLORS.azure}/></div>
-      {children}
-    </LoadingDiv>
+    return (
+      <LoadingDiv>
+        <div className="loading-wrapper" />
+        <div className="loading">
+          <Loader dimension="large" color={COLORS.azure} />
+        </div>
+        {children}
+      </LoadingDiv>
+    );
   }
-  return <>{children}</>
+  return <>{children}</>;
 }
 
 const LoadingDiv = styled.div`
@@ -30,7 +34,7 @@ const LoadingDiv = styled.div`
     z-index: 2;
     opacity: 0.25;
   }
-  
+
   .loading {
     position: absolute;
     width: 100%;
@@ -40,4 +44,4 @@ const LoadingDiv = styled.div`
     justify-content: center;
     align-items: center;
   }
-`
+`;
