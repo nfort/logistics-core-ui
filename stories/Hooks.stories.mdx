@@ -16,14 +16,4 @@ useToggle(initialState: boolean = false): readonly [boolean, () => void]
 usePrevious(value: string | number | object | any[] | undefined | null): string | number | object | any[] | null | undefined
 ```
 
-# Formik Hooks
-
-```ts
-useArrayFieldFormik<Values extends {[key: string]: string[]}>(name: string): readonly [string[], (newValue: string) => void]
-```
-
-```ts
-useDeleteFieldFormik(): (fieldOrFields: (string | string[])) => void
-```
-
 export const Component = () => <SyntaxHighlighter/>

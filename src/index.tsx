@@ -14,5 +14,3 @@ export { WithPrefetch } from "./hocs/WithPrefetch";
 
 export { useToggle } from "./hooks/useToggle";
 export { usePrevious } from "./hooks/usePrevious";
-export { useArrayFieldFormik } from "./hooks/formik/useArrayFieldFormik";
-export { useDeleteFieldFormik } from "./hooks/formik/useDeleteFieldFormik";
