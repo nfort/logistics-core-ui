@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Content } from "../../src/atoms/Content";
 import { WithPrefetch } from "../../src/hocs/WithPrefetch";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Paragraph } from "@holism/components";
+import { Paragraph } from "@nfort/holism-ui";
 
 const queryClient = new QueryClient();
 

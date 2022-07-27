@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { COLORS, Loader } from "@holism/components";
+import { COLORS, Loader } from "@nfort/holism-ui";
 import styled from "styled-components";
 import { baseBorderRadius } from "../styles/base";
 

@@ -22,8 +22,7 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "@holism/components": "0.9.9",
-    "@nfort/holism-ui": "^1.5.0",
+    "@nfort/holism-ui": "^2.8.3",
     "formik": "2.x.x",
     "normalize.css": ">=8",
     "react": ">=17",
@@ -55,8 +54,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@holism/components": "^0.9.9",
-    "@nfort/holism-ui": "^1.5.0",
+    "@nfort/holism-ui": "^2.8.3",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-docs": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",

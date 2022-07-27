@@ -1,4 +1,4 @@
-import { Button, Paragraph } from "@holism/components";
+import { Button, Paragraph } from "@nfort/holism-ui";
 import React from "react";
 import styled from "styled-components";
 import { RefreshIcon, DoubleArrowLeftIcon, ArrowLeftIcon, DoubleArrowRightIcon, ArrowRightIcon } from "@holism/icons";

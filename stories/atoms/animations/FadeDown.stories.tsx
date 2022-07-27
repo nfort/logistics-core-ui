@@ -2,7 +2,7 @@ import * as React from "react";
 import { Content, LoadingContainer, useToggle } from "../../../src";
 import { FadeDown } from "../../../src";
 import { ComponentMeta } from "@storybook/react";
-import { Button } from "@holism/components";
+import { Button } from "@nfort/holism-ui";
 
 const meta = {
   title: "atoms/animations/FadeDown",

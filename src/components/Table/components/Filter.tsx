@@ -1,6 +1,6 @@
 import React, { ChangeEvent, PropsWithChildren, useState } from "react";
 import { TableInstance, useAsyncDebounce } from "react-table";
-import { Button } from "@holism/components";
+import { Button } from "@nfort/holism-ui";
 import { Input } from "@nfort/holism-ui";
 import { SearchIcon, PropertiesIcon, ArrowUpIcon } from "@holism/icons";
 import styled from "styled-components";

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Column, useFlexLayout, usePagination, useSortBy, useTable } from "react-table";
-import { Button, DropMenu, Paragraph } from "@holism/components";
+import { Button, DropMenu, Paragraph } from "@nfort/holism-ui";
 import { Content, DefaultColumnFilter, LoadingContainer, Pagination, Table } from "../../../src";
 
 export interface EmployeeDTO {
