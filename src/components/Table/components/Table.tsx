@@ -49,7 +49,6 @@ export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, head
 
 const Styles = styled.div`
   overflow-x: scroll;
-  overflow-y: hidden;
 
   .tableWrap {
     min-width: 1366px;
