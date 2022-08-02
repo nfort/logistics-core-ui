@@ -48,8 +48,6 @@ export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, head
 }
 
 const Styles = styled.div`
-  overflow-x: scroll;
-
   .tableWrap {
     min-width: 1366px;
   }
@@ -73,7 +71,6 @@ const Styles = styled.div`
       background-color: #f7faff;
       text-transform: uppercase;
       overflow-y: auto;
-      overflow-x: hidden;
 
       .desc::after {
         content: " \\A71C";
@@ -94,7 +91,6 @@ const Styles = styled.div`
 
     .tbody {
       overflow-y: scroll;
-      overflow-x: hidden;
       font-size: 15px;
       line-height: 20px;
       min-height: 500px;
