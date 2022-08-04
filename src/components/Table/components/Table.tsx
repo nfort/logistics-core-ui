@@ -62,7 +62,6 @@ const Styles = styled.div`
 
     .thead .tr,
     .tbody .tr {
-      border-bottom: 1px solid rgb(246, 246, 249);
     }
 
     .thead {
@@ -114,17 +113,18 @@ const Styles = styled.div`
       }
 
       .tr.clickable {
-        transition: background-color 150ms ease-in-out 0s;
+        align-items: stretch;
       }
 
       .tr.clickable:hover {
         cursor: pointer;
-        box-shadow: rgb(38 44 64 / 12%) 0 12px 40px -6px, rgb(38 44 64 / 2%) 0px 0px 8px 0px;
-        background-color: rgb(255, 255, 255);
+        background-color: #f6f6f9;
       }
     }
 
     .tr {
+      border-color: rgb(246, 246, 249);
+      background-color: transparent;
       :last-child {
         .td {
           border-bottom: 0;
@@ -141,6 +141,10 @@ const Styles = styled.div`
       margin: 0;
       padding: 1rem;
       word-break: break-all;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-color: inherit;
+      background-color: inherit;
     }
   }
 `;

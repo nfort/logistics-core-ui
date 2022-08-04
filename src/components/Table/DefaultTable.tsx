@@ -99,6 +99,7 @@ export function DefaultTable<D extends object>({
               pageOptions={pageOptions}
               pageCount={pageCount}
               reload={reload}
+              count={data.length}
             />
           </Content.Header>
           <div>

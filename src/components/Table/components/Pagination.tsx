@@ -5,7 +5,7 @@ import { RefreshIcon, DoubleArrowLeftIcon, ArrowLeftIcon, DoubleArrowRightIcon, 
 import { UsePaginationInstanceProps, UsePaginationState } from "react-table";
 
 type Props = Omit<UsePaginationInstanceProps<any>, "setPageSize"> &
-  Omit<UsePaginationState<any>, "pageSize"> & { reload?: () => void };
+  Omit<UsePaginationState<any>, "pageSize"> & { reload?: () => void; count: number };
 
 export function Pagination({
   pageOptions,
@@ -17,11 +17,14 @@ export function Pagination({
   canPreviousPage,
   canNextPage,
   previousPage,
+  count,
 }: Props) {
   return (
     <Styled>
       <div>
-        <Paragraph size={14} lineHeight={20}>{`Страница ${pageIndex + 1} из ${pageOptions.length}`}</Paragraph>
+        <Paragraph size={14} lineHeight={20}>{`Страница ${pageIndex + 1} из ${
+          pageOptions.length
+        } — Записей ${count}`}</Paragraph>
       </div>
       <div className="right-block">
         {typeof reload === "function" && (
