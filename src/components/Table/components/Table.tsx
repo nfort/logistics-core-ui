@@ -1,4 +1,5 @@
 import { Row, UseTableInstanceProps } from "react-table";
+import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 import React from "react";
 import styled from "styled-components";
 
@@ -10,48 +11,48 @@ type Props = Pick<
 export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, headerGroups, onRowClick }: Props) {
   return (
     <Styles>
-      <div className="tableWrap">
+      <ScrollSync>
         <div {...getTableProps()} className="table">
-          <div className="thead">
-            {headerGroups.map((headerGroup) => (
-              <div {...headerGroup.getHeaderGroupProps()} className="tr">
-                {headerGroup.headers.map((column) => (
-                  <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
-                    {column.render("Header")}
-                    <span className={column.isSorted ? (column.isSortedDesc ? "desc" : "asc") : ""} />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-          <div {...getTableBodyProps()} className="tbody">
-            {rows.map((row) => {
-              prepareRow(row);
-              return (
-                <div
-                  {...row.getRowProps((props) => ({ ...props, onClick: () => onRowClick && onRowClick(row) }))}
-                  className={`tr ${onRowClick && "clickable"}`}
-                >
-                  {row.cells.map((cell) => (
-                    <div {...cell.getCellProps()} className="td">
-                      {cell.render("Cell")}
+          <ScrollSyncPane group="horizontal">
+            <div className="thead">
+              {headerGroups.map((headerGroup) => (
+                <div {...headerGroup.getHeaderGroupProps()} className="tr">
+                  {headerGroup.headers.map((column) => (
+                    <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
+                      {column.render("Header")}
+                      <span className={column.isSorted ? (column.isSortedDesc ? "desc" : "asc") : ""} />
                     </div>
                   ))}
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          </ScrollSyncPane>
+          <ScrollSyncPane group="horizontal">
+            <div {...getTableBodyProps()} className="tbody">
+              {rows.map((row) => {
+                prepareRow(row);
+                return (
+                  <div
+                    {...row.getRowProps((props) => ({ ...props, onClick: () => onRowClick && onRowClick(row) }))}
+                    className={`tr ${onRowClick && "clickable"}`}
+                  >
+                    {row.cells.map((cell) => (
+                      <div {...cell.getCellProps()} className="td">
+                        {cell.render("Cell")}
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollSyncPane>
         </div>
-      </div>
+      </ScrollSync>
     </Styles>
   );
 }
 
 const Styles = styled.div`
-  .tableWrap {
-    min-width: 1366px;
-  }
-
   .table {
     border-spacing: 0;
     background-color: white;
@@ -70,7 +71,9 @@ const Styles = styled.div`
       font-weight: bold;
       background-color: #f7faff;
       text-transform: uppercase;
-      overflow-y: auto;
+      position: sticky;
+      top: 0;
+      overflow-x: auto;
 
       .desc::after {
         content: " \\A71C";
@@ -89,12 +92,22 @@ const Styles = styled.div`
       }
     }
 
-    .tbody {
+    /* hide scrollbar but allow scrolling */
+    .thead {
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
       overflow-y: scroll;
+    }
+
+    .thead::-webkit-scrollbar {
+      display: none; /* for Chrome, Safari, and Opera */
+    }
+
+    .tbody {
+      overflow-x: auto;
       font-size: 15px;
       line-height: 20px;
-      min-height: 500px;
-      max-height: 1024px;
+      min-height: 250px;
 
       .tr {
         align-items: center;

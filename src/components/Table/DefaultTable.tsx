@@ -18,12 +18,8 @@ import { Content } from "../../atoms/Content";
 export interface Props<D extends object> extends UseTableOptions<D> {
   loading?: boolean;
   reload?(): void;
+  pageSize?: number;
   onRowClick?(row: Row<D>): void;
-}
-
-function usePageSize() {
-  const height = window.innerHeight;
-  return [Math.ceil(height / 40)] as const;
 }
 
 export function DefaultTable<D extends object>({
@@ -31,9 +27,9 @@ export function DefaultTable<D extends object>({
   data,
   onRowClick,
   loading = false,
+  pageSize = 20,
   reload = () => {},
 }: Props<D>) {
-  const [pageSize] = usePageSize();
   const defaultColumn = useMemo(
     () => ({
       minWidth: 30,
