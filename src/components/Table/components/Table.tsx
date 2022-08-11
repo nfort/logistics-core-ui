@@ -109,10 +109,6 @@ const Styles = styled.div`
       min-height: 250px;
 
       .tr {
-        align-items: center;
-      }
-
-      .tr.clickable {
         align-items: stretch;
       }
 
@@ -145,6 +141,8 @@ const Styles = styled.div`
       border-bottom-style: solid;
       border-color: inherit;
       background-color: inherit;
+      display: flex;
+      align-items: stretch;
     }
   }
 `;
