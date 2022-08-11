@@ -142,7 +142,7 @@ const Styles = styled.div`
       border-color: inherit;
       background-color: inherit;
       display: flex;
-      align-items: stretch;
+      align-items: center;
     }
   }
 `;
