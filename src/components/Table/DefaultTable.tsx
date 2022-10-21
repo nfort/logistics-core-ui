@@ -70,9 +70,11 @@ export function DefaultTable<D extends object>({
   if (filter) {
     initialState.filter = filter;
   }
+
   if (globalFilter) {
     initialState.globalFilter = globalFilter;
   }
+
   if (sortBy) {
     initialState.sortBy = sortBy;
   }
