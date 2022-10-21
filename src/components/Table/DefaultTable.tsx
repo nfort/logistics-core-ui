@@ -8,24 +8,47 @@ import {
   useTable,
   UseTableOptions,
 } from "react-table";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Filter } from "./components/Filter";
 import { Pagination } from "./components/Pagination";
 import { Table } from "./components/Table";
 import { LoadingContainer } from "../../atoms/LoadingContainer";
 import { Content } from "../../atoms/Content";
 
+type Filter = {
+  id: string;
+  value: string | number | boolean;
+}[];
+type GlobalFilter = string | number | boolean;
+type SortBy = { id: string; desc?: boolean | undefined }[];
+
+type InitialState = {
+  pageSize: number;
+  pageIndex: number;
+  filter?: Filter;
+  globalFilter?: GlobalFilter;
+  sortBy?: SortBy;
+};
+
 export interface Props<D extends object> extends UseTableOptions<D> {
   loading?: boolean;
   reload?(): void;
   pageSize?: number;
   onRowClick?(row: Row<D>): void;
+  onUpdateFilterOrSort?(globalFilter: GlobalFilter, filter: Filter, sortBy: SortBy): void;
+  filter?: Filter;
+  globalFilter?: GlobalFilter;
+  sortBy?: SortBy;
 }
 
 export function DefaultTable<D extends object>({
   columns,
   data,
   onRowClick,
+  onUpdateFilterOrSort,
+  filter,
+  globalFilter,
+  sortBy,
   loading = false,
   pageSize = 20,
   reload = () => {},
@@ -39,6 +62,23 @@ export function DefaultTable<D extends object>({
     []
   );
   // Use the state and functions returned from useTable to build your UI
+  const initialState: InitialState = {
+    pageSize,
+    pageIndex: 0,
+  };
+
+  if (filter) {
+    initialState.filter = filter;
+  }
+
+  if (globalFilter) {
+    initialState.globalFilter = globalFilter;
+  }
+
+  if (sortBy) {
+    initialState.sortBy = sortBy;
+  }
+
   const {
     columns: _columns,
     getTableProps,
@@ -64,10 +104,7 @@ export function DefaultTable<D extends object>({
       columns,
       data,
       defaultColumn,
-      initialState: {
-        pageSize,
-        pageIndex: 0,
-      },
+      initialState,
     },
     useFlexLayout,
     useGlobalFilter,
@@ -75,6 +112,10 @@ export function DefaultTable<D extends object>({
     useSortBy,
     usePagination
   );
+
+  useEffect(() => {
+    onUpdateFilterOrSort && onUpdateFilterOrSort(state.globalFilter, state.filters, state.sortBy);
+  }, [state.globalFilter, state.filters, state.sortBy, onUpdateFilterOrSort]);
   return (
     <>
       <LoadingContainer loading={loading}>
