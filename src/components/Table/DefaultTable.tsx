@@ -15,17 +15,17 @@ import { Table } from "./components/Table";
 import { LoadingContainer } from "../../atoms/LoadingContainer";
 import { Content } from "../../atoms/Content";
 
-type Filter = {
+export type Filters = {
   id: string;
   value: string | number | boolean;
 }[];
-type GlobalFilter = string | number | boolean;
-type SortBy = { id: string; desc?: boolean | undefined }[];
+export type GlobalFilter = string | number | boolean;
+export type SortBy = { id: string; desc?: boolean | undefined }[];
 
-type InitialState = {
+export type InitialState = {
   pageSize: number;
   pageIndex: number;
-  filter?: Filter;
+  filters?: Filters;
   globalFilter?: GlobalFilter;
   sortBy?: SortBy;
 };
@@ -35,8 +35,8 @@ export interface Props<D extends object> extends UseTableOptions<D> {
   reload?(): void;
   pageSize?: number;
   onRowClick?(row: Row<D>): void;
-  onUpdateFilterOrSort?(globalFilter: GlobalFilter, filter: Filter, sortBy: SortBy): void;
-  filter?: Filter;
+  onUpdateFilterOrSort?(globalFilter: GlobalFilter, filters: Filters, sortBy: SortBy): void;
+  filters?: Filters;
   globalFilter?: GlobalFilter;
   sortBy?: SortBy;
 }
@@ -46,7 +46,7 @@ export function DefaultTable<D extends object>({
   data,
   onRowClick,
   onUpdateFilterOrSort,
-  filter,
+  filters,
   globalFilter,
   sortBy,
   loading = false,
@@ -67,8 +67,8 @@ export function DefaultTable<D extends object>({
     pageIndex: 0,
   };
 
-  if (filter) {
-    initialState.filter = filter;
+  if (filters) {
+    initialState.filters = filters;
   }
 
   if (globalFilter) {

@@ -29,6 +29,7 @@ import { Content, DefaultColumnFilter, LoadingContainer, Pagination, Table } fro
     <Story name="Default">
       <DefaultTable
       sortBy={[{ id: 'email', desc: true }]}
+      filters={[{ id: 'email', value: 'des' }]}
       onUpdateFilterOrSort={(...args) => console.log(args)}
       data={[ {
   "id" : "58102223-adfd-40f4-aba1-b312f69a5fdb",
