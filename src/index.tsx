@@ -9,8 +9,10 @@ export { FadeDown } from "./atoms/animations/FadeDown";
 export { Alert } from "./components/Alert";
 export { DefaultTable } from "./components/Table/DefaultTable";
 export { Pagination, Filter, DefaultColumnFilter, Table } from "./components/Table/components";
+export { useStorageTableFilter } from "./components/Table/useStorageTableFilter";
 
 export { WithPrefetch } from "./hocs/WithPrefetch";
 
 export { useToggle } from "./hooks/useToggle";
 export { usePrevious } from "./hooks/usePrevious";
+export { useStorage } from "./hooks/useStorage";

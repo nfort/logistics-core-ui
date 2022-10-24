@@ -16,4 +16,8 @@ useToggle(initialState: boolean = false): readonly [boolean, () => void]
 usePrevious(value: string | number | object | any[] | undefined | null): string | number | object | any[] | null | undefined
 ```
 
+```ts
+useStorage(key: string, defaultValue?: any): [value, setValue] 
+```
+
 export const Component = () => <SyntaxHighlighter/>
