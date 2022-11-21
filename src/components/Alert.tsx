@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { COLORS } from "@nfort/holism-ui";
 import { Paragraph } from "@nfort/holism-ui";
-import { AttentionIcon, StatusOkIcon } from "@holism/icons";
+import { AttentionIcon, StatusOkIcon } from "@nfort/logistics-icons";
 import { baseBorderRadius } from "../styles/base";
 
 interface Props {

@@ -35,7 +35,11 @@ export interface Props<D extends object> extends UseTableOptions<D> {
   reload?(): void;
   pageSize?: number;
   onRowClick?(row: Row<D>): void;
-  onUpdateFilterOrSort?(globalFilter: GlobalFilter, filters: Filters, sortBy: SortBy): void;
+  onUpdateFilterOrSort?(
+    globalFilter: GlobalFilter,
+    filters: Filters,
+    sortBy: SortBy
+  ): void;
   filters?: Filters;
   globalFilter?: GlobalFilter;
   sortBy?: SortBy;
@@ -114,7 +118,8 @@ export function DefaultTable<D extends object>({
   );
 
   useEffect(() => {
-    onUpdateFilterOrSort && onUpdateFilterOrSort(state.globalFilter, state.filters, state.sortBy);
+    onUpdateFilterOrSort &&
+      onUpdateFilterOrSort(state.globalFilter, state.filters, state.sortBy);
   }, [state.globalFilter, state.filters, state.sortBy, onUpdateFilterOrSort]);
   return (
     <>

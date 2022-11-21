@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
-import { baseBorderColor, baseBorderRadius, baseBorderWidth } from "../styles/base";
+import {
+  baseBorderColor,
+  baseBorderRadius,
+  baseBorderWidth,
+} from "../styles/base";
 
 const Header = styled.div`
   border-bottom: 1px solid #eee;

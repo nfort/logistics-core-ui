@@ -8,7 +8,14 @@ type Props = Pick<
   "getTableProps" | "getTableBodyProps" | "rows" | "prepareRow" | "headerGroups"
 > & { onRowClick?(row: Row<any>): void };
 
-export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, headerGroups, onRowClick }: Props) {
+export function Table({
+  getTableBodyProps,
+  getTableProps,
+  rows,
+  prepareRow,
+  headerGroups,
+  onRowClick,
+}: Props) {
   return (
     <Styles>
       <ScrollSync>
@@ -18,9 +25,20 @@ export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, head
               {headerGroups.map((headerGroup) => (
                 <div {...headerGroup.getHeaderGroupProps()} className="tr">
                   {headerGroup.headers.map((column) => (
-                    <div {...column.getHeaderProps(column.getSortByToggleProps())} className="th">
+                    <div
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                      className="th"
+                    >
                       {column.render("Header")}
-                      <span className={column.isSorted ? (column.isSortedDesc ? "desc" : "asc") : ""} />
+                      <span
+                        className={
+                          column.isSorted
+                            ? column.isSortedDesc
+                              ? "desc"
+                              : "asc"
+                            : ""
+                        }
+                      />
                     </div>
                   ))}
                 </div>
@@ -33,7 +51,10 @@ export function Table({ getTableBodyProps, getTableProps, rows, prepareRow, head
                 prepareRow(row);
                 return (
                   <div
-                    {...row.getRowProps((props) => ({ ...props, onClick: () => onRowClick && onRowClick(row) }))}
+                    {...row.getRowProps((props) => ({
+                      ...props,
+                      onClick: () => onRowClick && onRowClick(row),
+                    }))}
                     className={`tr ${onRowClick && "clickable"}`}
                   >
                     {row.cells.map((cell) => (

@@ -2,17 +2,29 @@ import React, { ChangeEvent, PropsWithChildren, useState } from "react";
 import { TableInstance, useAsyncDebounce } from "react-table";
 import { Button } from "@nfort/holism-ui";
 import { Input } from "@nfort/holism-ui";
-import { SearchIcon, PropertiesIcon, ArrowUpIcon } from "@holism/icons";
+import {
+  SearchIcon,
+  PropertiesIcon,
+  ArrowUpIcon,
+} from "@nfort/logistics-icons";
 import styled from "styled-components";
 import { baseBorderRadius, baseBorderWidth } from "../../../styles/base";
 import { ReturnedTypeUseToggle, useToggle } from "../../../hooks/useToggle";
 import { FadeDown } from "../../../atoms/animations/FadeDown";
 
 type Props = PropsWithChildren<
-  Pick<TableInstance<any>, "columns" | "preGlobalFilteredRows" | "setGlobalFilter" | "globalFilter">
+  Pick<
+    TableInstance<any>,
+    "columns" | "preGlobalFilteredRows" | "setGlobalFilter" | "globalFilter"
+  >
 >;
 
-export function Filter({ globalFilter, setGlobalFilter, columns, children }: Props) {
+export function Filter({
+  globalFilter,
+  setGlobalFilter,
+  columns,
+  children,
+}: Props) {
   const [value, setValue] = useState(globalFilter);
   const [showAllFilters, toggleAllFilters] = useToggle();
   const onChange = useAsyncDebounce((value) => {
@@ -80,10 +92,18 @@ function FiltersControlButton({
   if (hasFilter) {
     return (
       <div style={{ position: "relative" }}>
-        <Button type="button" isWithIcon={true} color="tertiary" onClick={onToggle} dimension="medium">
+        <Button
+          type="button"
+          isWithIcon={true}
+          color="tertiary"
+          onClick={onToggle}
+          dimension="medium"
+        >
           {opened ? <ArrowUpIcon size={20} /> : <PropertiesIcon size={20} />}
         </Button>
-        {!opened && amountFilters ? <AmountFilters>{Math.min(amountFilters, 9)}</AmountFilters> : null}
+        {!opened && amountFilters ? (
+          <AmountFilters>{Math.min(amountFilters, 9)}</AmountFilters>
+        ) : null}
       </div>
     );
   }

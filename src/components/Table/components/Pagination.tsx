@@ -1,11 +1,20 @@
 import { Button, Paragraph } from "@nfort/holism-ui";
 import React from "react";
 import styled from "styled-components";
-import { RefreshIcon, DoubleArrowLeftIcon, ArrowLeftIcon, DoubleArrowRightIcon, ArrowRightIcon } from "@holism/icons";
+import {
+  RefreshIcon,
+  DoubleArrowLeftIcon,
+  ArrowLeftIcon,
+  DoubleArrowRightIcon,
+  ArrowRightIcon,
+} from "@nfort/logistics-icons";
 import { UsePaginationInstanceProps, UsePaginationState } from "react-table";
 
 type Props = Omit<UsePaginationInstanceProps<any>, "setPageSize"> &
-  Omit<UsePaginationState<any>, "pageSize"> & { reload?: () => void; count: number };
+  Omit<UsePaginationState<any>, "pageSize"> & {
+    reload?: () => void;
+    count: number;
+  };
 
 export function Pagination({
   pageOptions,
@@ -28,7 +37,12 @@ export function Pagination({
       </div>
       <div className="right-block">
         {typeof reload === "function" && (
-          <Button dimension="xsmall" color="secondary" onClick={reload} isWithIcon={true}>
+          <Button
+            dimension="xsmall"
+            color="secondary"
+            onClick={reload}
+            isWithIcon={true}
+          >
             <RefreshIcon size={20} />
             Обновить
           </Button>
@@ -51,7 +65,13 @@ export function Pagination({
         >
           <ArrowLeftIcon size={20} />
         </Button>
-        <Button color="tertiary" dimension="xsmall" onClick={nextPage} isWithIcon={true} isDisabled={!canNextPage}>
+        <Button
+          color="tertiary"
+          dimension="xsmall"
+          onClick={nextPage}
+          isWithIcon={true}
+          isDisabled={!canNextPage}
+        >
           <ArrowRightIcon size={20} />
         </Button>
         <Button

@@ -7,7 +7,10 @@ interface LoadingBlockProps {
   loading: boolean;
 }
 
-export function LoadingContainer({ loading, children }: PropsWithChildren<LoadingBlockProps>) {
+export function LoadingContainer({
+  loading,
+  children,
+}: PropsWithChildren<LoadingBlockProps>) {
   if (loading) {
     return (
       <LoadingDiv>
